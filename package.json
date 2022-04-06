@@ -19,6 +19,11 @@
   "license": "0BSD",
   "dependencies": {
     "gatsby": "^4.11.2",
+    "gatsby-plugin-google-gtag": "^4.11.0",
+    "gatsby-plugin-manifest": "^4.11.1",
+    "gatsby-plugin-offline": "^5.11.1",
+    "gatsby-plugin-robots-txt": "^1.7.0",
+    "gatsby-plugin-sitemap": "^5.11.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
