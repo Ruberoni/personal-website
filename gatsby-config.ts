@@ -1,5 +1,5 @@
-import type { GatsbyConfig } from "gatsby"
-import path from "path"
+import type { GatsbyConfig } from "gatsby";
+import path from "path";
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -11,7 +11,7 @@ const config: GatsbyConfig = {
       options: {
         name: `locale`,
         path: `./locales`,
-      }
+      },
     },
     {
       resolve: `gatsby-plugin-react-i18next`,
@@ -22,12 +22,12 @@ const config: GatsbyConfig = {
         siteUrl: `http://localhost:8000/`,
         i18nextOptions: {
           interpolation: {
-            escapeValue: false 
+            escapeValue: false,
           },
           keySeparator: false,
-          nsSeparator: false
+          nsSeparator: false,
         },
-      }
+      },
     },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
@@ -40,7 +40,7 @@ const config: GatsbyConfig = {
         background_color: `#f7f0eb`,
         theme_color: `#a2466c`,
         display: `standalone`,
-        icon: `src/images/icon.png`
+        icon: `src/images/icon.png`,
       },
     },
     `gatsby-plugin-offline`,
@@ -70,6 +70,6 @@ const config: GatsbyConfig = {
       },
     },
   ],
-}
+};
 
-export default config
+export default config;
