@@ -1,6 +1,7 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
+import styled from "styled-components";
 
 // styles
 const pageStyles = {
@@ -127,6 +128,16 @@ const links = [
   },
 ];
 
+const Container = styled.div`
+  margin: 3rem auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+`;
+
 // markup
 const IndexPage = () => {
   const { t } = useTranslation();
@@ -139,6 +150,9 @@ const IndexPage = () => {
         <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
         🎉🎉🎉
       </h1>
+      <Container>
+        Styled div!
+      </Container>
       <p style={paragraphStyles}>
         Edit <code style={codeStyles}>src/pages/index.tsx</code> to see this
         page update in real-time. 😎
