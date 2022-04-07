@@ -1,4 +1,6 @@
 import * as React from "react"
+import {graphql} from 'gatsby';
+import {Trans, useTranslation} from 'gatsby-plugin-react-i18next';
 
 // styles
 const pageStyles = {
@@ -127,11 +129,12 @@ const links = [
 
 // markup
 const IndexPage = () => {
+  const { t } = useTranslation();
   return (
     <main style={pageStyles}>
-      <title>Home Page</title>
+      <title>{t('Home Page')}</title>
       <h1 style={headingStyles}>
-        Congratulations
+        <Trans>Congratulations</Trans>
         <br />
         <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
         🎉🎉🎉
@@ -177,3 +180,17 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query($language: String!) {
+    locales: allLocale(filter: {language: {eq: $language}}) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

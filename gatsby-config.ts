@@ -1,10 +1,34 @@
 import type { GatsbyConfig } from "gatsby"
+import path from "path"
 
 const config: GatsbyConfig = {
   siteMetadata: {
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `locale`,
+        path: `./locales`,
+      }
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locale`,
+        languages: [`en`, `es`],
+        defaultLanguage: `en`,
+        siteUrl: `http://localhost:8000/`,
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false 
+          },
+          keySeparator: false,
+          nsSeparator: false
+        },
+      }
+    },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
     {
