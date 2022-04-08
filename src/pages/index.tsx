@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 import styled from "styled-components";
 import Layout from "../components/Layout/Layout";
+import HeroLogoAnimation from "../components/Hero/HeroLogoAnimation";
 
 const Heading = styled.h1`
   font-size: ${(props) => props.theme.fontSizes.heading};
@@ -17,6 +18,7 @@ const IndexPage = () => {
       <Heading>
         <Trans>Congratulations</Trans>
       </Heading>
+      <HeroLogoAnimation />
     </Layout>
   );
 };
