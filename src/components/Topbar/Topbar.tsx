@@ -1,3 +1,4 @@
+import { Trans } from "gatsby-plugin-react-i18next";
 import React from "react";
 import styled from "styled-components";
 
@@ -16,14 +17,14 @@ const Container = styled.div`
 
 const TopBarButtons = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(4, max-content);
   grid-gap: 2em;
 `;
 
 const TopBarItem = styled.a`
   display: flex;
   align-items: center;
-  padding: 0 0.5em;
+  padding: 0 1em;
 
   font-size: ${({ theme }) => theme.fontSizes.body};
   color: ${({ theme }) => theme.colors.heading};
@@ -35,10 +36,18 @@ const Topbar = () => {
   return (
     <Container>
       <TopBarButtons>
-        <TopBarItem href="#Home">Home</TopBarItem>
-        <TopBarItem href="#About">About</TopBarItem>
-        <TopBarItem href="#Projects">Projects</TopBarItem>
-        <TopBarItem href="#Contact">Contact</TopBarItem>
+        <TopBarItem href="#Home">
+          <Trans>Home</Trans>
+        </TopBarItem>
+        <TopBarItem href="#About">
+          <Trans>About</Trans>
+        </TopBarItem>
+        <TopBarItem href="#Projects">
+          <Trans>Projects</Trans>
+        </TopBarItem>
+        <TopBarItem href="#Contact">
+          <Trans>Contact me</Trans>
+        </TopBarItem>
       </TopBarButtons>
     </Container>
   );
