@@ -12,7 +12,8 @@
     "i18n",
     "i18next",
     "seo",
-    "styled-components"
+    "styled-components",
+    "husky"
   ],
   "scripts": {
     "develop": "gatsby develop",
