@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useSpring, animated } from "@react-spring/web";
 
 const Container = styled.div`
   width: 370px;
@@ -12,31 +13,39 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Dot = styled.div<{ dy: number; dx: number }>`
+const Dot = styled(animated.div)`
   background-color: black;
   width: 10px;
   height: 10px;
-
-  transition: all 2s linear;
 `;
+
+const getDotTransform = (x: number, y: number) => `translate(${x}px, ${y}px)`;
 
 const HeroLogoAnimation = () => {
   const dotRef = React.useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState([0, 0]);
-  const [trans, setTrans] = useState([0, 0]);
   const [mouseMoveTimeout, setMouseMoveTimeout] = useState<NodeJS.Timeout>();
+
+  const [animProps, setAnimProps] = useSpring(() => ({
+    xy: [0, 0],
+  }));
 
   const handleMouseMoveContainer: React.MouseEventHandler<HTMLDivElement> = (
     e
   ) => {
-    // console.log(`[Mouse] pageX: ${e.pageX}`)
-    // console.log(`[Mouse] pageY: ${e.pageY}`)
-    // console.log(`[Dot] dotRef.current?.offsetLeft:`, dotRef.current?.offsetLeft)
-    // console.log(`[Dot] dotRef.current?.offsetTop:`, dotRef.current?.offsetTop)
+    console.log(`[Mouse] pageX: ${e.pageX}`);
+    console.log(`[Mouse] pageY: ${e.pageY}`);
+    console.log(
+      `[Dot] dotRef.current?.clientLeft:`,
+      dotRef.current?.clientLeft
+    );
+    console.log(`[Dot] dotRef.current?.clientTop:`, dotRef.current?.clientTop);
 
     mouseMoveTimeout && clearTimeout(mouseMoveTimeout);
     const _mouseMoveTimeout = setTimeout(() => {
-      setTrans([0, 0]);
+      setAnimProps({
+        xy: [0, 0],
+      });
       setMousePos([0, 0]);
     }, 20);
     setMouseMoveTimeout(_mouseMoveTimeout);
@@ -44,8 +53,14 @@ const HeroLogoAnimation = () => {
     if (mousePos[0] && mousePos[1]) {
       const dMouseX = e.pageX - mousePos[0];
       const dMouseY = e.pageY - mousePos[1];
-      setTrans((prev) => [prev[0] + dMouseX * 4, prev[1] + dMouseY * 4]);
-      // console.log(`dMouseX: ${dMouseX}, dMouseY: ${dMouseY}`)
+      console.log(`[Mouse] dMouseX: ${dMouseX}`);
+      console.log(`[Mouse] dMouseY: ${dMouseY}`);
+      setAnimProps({
+        xy: [
+          animProps.xy.get()[0] + dMouseX * 4,
+          animProps.xy.get()[1] + dMouseY * 4,
+        ],
+      });
     }
 
     setMousePos([e.pageX, e.pageY]);
@@ -55,9 +70,7 @@ const HeroLogoAnimation = () => {
     <Container onMouseMove={handleMouseMoveContainer}>
       <Dot
         ref={dotRef}
-        style={{ transform: `translate(${trans[0]}px, ${trans[1]}px)` }}
-        dy={trans[1]}
-        dx={trans[0]}
+        style={{ transform: animProps.xy.to(getDotTransform) }}
       />
     </Container>
   );
