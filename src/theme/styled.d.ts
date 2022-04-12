@@ -7,6 +7,8 @@ declare module "styled-components" {
       secondary: string;
       body: string;
       heading: string;
+      7: string;
+      5: string;
     };
     fontSizes: {
       sm: string;

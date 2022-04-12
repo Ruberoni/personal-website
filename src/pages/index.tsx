@@ -1,24 +1,18 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
-import styled from "styled-components";
+import { useTranslation } from "gatsby-plugin-react-i18next";
+import "@fontsource/roboto";
+import "@fontsource/roboto/500.css";
+import "@fontsource/rouge-script";
 import Layout from "../components/Layout/Layout";
-import HeroLogoAnimation from "../components/Hero/HeroLogoAnimation";
-
-const Heading = styled.h1`
-  font-size: ${(props) => props.theme.fontSizes.heading};
-  color: ${(props) => props.theme.colors.heading};
-`;
+import Hero from "../components/Hero/Hero";
 
 const IndexPage = () => {
   const { t } = useTranslation();
   return (
     <Layout>
       <title>{t("Home Page")}</title>
-      <Heading>
-        <Trans>Congratulations</Trans>
-      </Heading>
-      <HeroLogoAnimation />
+      <Hero style={{ height: "90vh" }} />
     </Layout>
   );
 };

@@ -6,6 +6,8 @@ export const commonThemeStyles: DefaultTheme = {
     secondary: "",
     body: "",
     heading: "",
+    7: "",
+    5: "",
   },
   fontSizes: {
     sm: "",
@@ -23,6 +25,8 @@ export const lightTheme: DefaultTheme = {
     secondary: "white",
     body: "black",
     heading: "#219F94",
+    7: "grey",
+    5: "brown",
   },
 };
 
@@ -33,5 +37,7 @@ export const darkTheme: DefaultTheme = {
     secondary: "#112031",
     body: "white",
     heading: "#D4ECDD",
+    7: "#455D77",
+    5: "#36495E",
   },
 };
