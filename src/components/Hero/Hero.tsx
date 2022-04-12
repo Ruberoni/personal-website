@@ -1,12 +1,14 @@
-import React, { CSSProperties } from "react";
+import React, { HTMLProps } from "react";
 import styled from "styled-components";
 import HeroLogoAnimation from "./HeroLogoAnimation";
 import SmileFaceSVG from "../icons/SmileFace";
+import CirclesLayout from "./CirclesLayout";
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 `;
 
 const HeroLogoContainer = styled.div`
@@ -38,18 +40,20 @@ const OccupationContainer = styled.div`
   align-self: center;
 `;
 
-const Hero = (props: { style: CSSProperties }) => {
+const Hero = (props: HTMLProps<HTMLDivElement>) => {
   return (
-    <Container {...props}>
-      <HeroLogoContainer>
-        <HeroText>Rubén</HeroText>
-        <HeroLogoAnimation />
-        <OccupationContainer>
-          <OccupationText>web developer</OccupationText>
-          <SmileFace />
-        </OccupationContainer>
-      </HeroLogoContainer>
-    </Container>
+    <CirclesLayout {...props}>
+      <Container>
+        <HeroLogoContainer>
+          <HeroText>Rubén</HeroText>
+          <HeroLogoAnimation />
+          <OccupationContainer>
+            <OccupationText>web developer</OccupationText>
+            <SmileFace />
+          </OccupationContainer>
+        </HeroLogoContainer>
+      </Container>
+    </CirclesLayout>
   );
 };
 

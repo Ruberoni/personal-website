@@ -12,7 +12,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <title>{t("Home Page")}</title>
-      <Hero style={{ height: "90vh" }} />
+      <Hero style={{ height: "75vh", marginTop: "70px" }} id="Home" />
     </Layout>
   );
 };
