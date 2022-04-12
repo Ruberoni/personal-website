@@ -6,6 +6,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/rouge-script";
 import Layout from "../components/Layout/Layout";
 import Hero from "../components/Hero/Hero";
+import About from "../components/About/About";
 
 const IndexPage = () => {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ const IndexPage = () => {
     <Layout>
       <title>{t("Home Page")}</title>
       <Hero style={{ height: "75vh", marginTop: "70px" }} id="Home" />
+      <About />
     </Layout>
   );
 };

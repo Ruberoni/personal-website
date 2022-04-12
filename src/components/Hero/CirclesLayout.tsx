@@ -1,5 +1,6 @@
 import React, { CSSProperties, HTMLProps } from "react";
 import styled, { useTheme } from "styled-components";
+import Circle from "../common/Circle";
 
 const CirclesColumnContainer = styled.div`
   display: flex;
@@ -9,13 +10,6 @@ const CirclesColumnContainer = styled.div`
   position: absolute;
   z-index: -1;
   height: inherit;
-`;
-
-const Circle = styled.div`
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background-color: purple;
 `;
 
 interface ICirclesColumn {
@@ -29,12 +23,9 @@ const CirclesColumn = ({ n = 4, circlesStyles, ...props }: ICirclesColumn) => {
     <CirclesColumnContainer {...props}>
       {Array(4)
         .fill(1)
-        .map((_, i) => {
-          const size = `${(i + 1) * 30}px`;
-          return (
-            <Circle style={{ width: size, height: size, ...circlesStyles }} />
-          );
-        })}
+        .map((_, i) => (
+          <Circle size={(i + 1) * 30} style={circlesStyles} />
+        ))}
     </CirclesColumnContainer>
   );
 };
