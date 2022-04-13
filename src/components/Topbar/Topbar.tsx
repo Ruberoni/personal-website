@@ -12,12 +12,15 @@ const Container = styled.div`
   width: 100%;
   height: 55px;
 
+  z-index: 999;
+
   box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 
 const TopBarButtons = styled.div`
   display: grid;
   grid-template-columns: repeat(4, max-content);
+  grid-gap: 20px;
   grid-gap: 2em;
 `;
 

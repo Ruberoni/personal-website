@@ -2,6 +2,7 @@ import * as React from "react";
 import { graphql } from "gatsby";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import "@fontsource/roboto";
+import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/rouge-script";
 import Layout from "../components/Layout/Layout";

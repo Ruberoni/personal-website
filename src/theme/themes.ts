@@ -9,6 +9,7 @@ export const commonThemeStyles: DefaultTheme = {
     8: "lightgrey",
     7: "",
     5: "",
+    3: "",
   },
   fontSizes: {
     sm: "",
@@ -29,6 +30,7 @@ export const lightTheme: DefaultTheme = {
     8: "lightgrey",
     7: "grey",
     5: "brown",
+    3: "yellow",
   },
 };
 
@@ -42,5 +44,6 @@ export const darkTheme: DefaultTheme = {
     8: "#7B61FF",
     7: "#455D77",
     5: "#36495E",
+    3: "#345B63",
   },
 };

@@ -1,23 +1,18 @@
-import React, { CSSProperties } from "react";
+import { CSSProperties } from "react";
+import styled from "styled-components";
 
 export interface CircleProps {
   size: number;
   style?: CSSProperties;
 }
 
-const Circle = ({ size = 30, style }: CircleProps) => {
-  const _size = `${size}px`;
-  return (
-    <div
-      style={{
-        backgroundColor: "purple",
-        borderRadius: "50%",
-        width: _size,
-        height: _size,
-        ...style,
-      }}
-    />
-  );
-};
+const Circle = styled.div<CircleProps>`
+  background-color: purple;
+  border-radius: 50%;
+  width: ${({ size }) => `${size}px`};
+  height: ${({ size }) => `${size}px`};
+  margin: 0;
+  display: inline-block;
+`;
 
 export default Circle;

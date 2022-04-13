@@ -1,49 +1,57 @@
 import React, { CSSProperties, ReactNode } from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import Circle from "../common/Circle";
 import Triangle from "../icons/Triangle";
+import { Heading as HeadingText } from "../common/text";
 
-const HeadingText = styled.h1`
-  font-size: ${({ theme }) => theme.fontSizes.heading};
-  color: ${({ theme }) => theme.colors.heading};
-  margin-bottom: 0;
-`;
 export interface LineProps {
   width?: number;
   style?: CSSProperties;
 }
 
 const Line = styled.div<LineProps>`
-  width: ${({ width }) => `${width || 400}px`};
+  width: ${({ width }) => (width ? `${width}px` : "inherit")};
   height: 1px;
   opacity: 0.5;
   background-color: ${({ theme }) => theme.colors.body};
-  position: relative;
+  position: absolute;
   z-index: -1;
 `;
 
-const ArrowContainer = styled.div`
+interface ArrowProps {
+  width?: number;
+  style?: CSSProperties;
+}
+
+const ArrowContainer = styled.div<ArrowProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: absolute;
+  width: ${({ width }) => (width ? `${width}px` : "100%")};
 `;
 
-const Arrow = () => {
+const Arrow = (props: ArrowProps) => {
+  const theme = useTheme();
+
   return (
-    <ArrowContainer>
-      <Triangle width="9" height="11" />
+    <ArrowContainer {...props}>
+      <Triangle width="9" height="11" fill={theme.colors["8"]} />
       <Line />
-      <Circle size={6} />
+      <Circle size={6} style={{ backgroundColor: theme.colors["8"] }} />
     </ArrowContainer>
   );
 };
 
-const Heading = ({ children }: { children: ReactNode }) => {
+export interface HeadingProps {
+  children?: ReactNode;
+  arrowWidth?: number;
+}
+
+const Heading = ({ children, arrowWidth }: HeadingProps) => {
   return (
     <div>
       <HeadingText>{children}</HeadingText>
-      <Arrow />
+      <Arrow width={arrowWidth || 540} />
     </div>
   );
 };
