@@ -4,15 +4,15 @@ import { Theme, GlobalStyles } from "../../theme";
 import Topbar from "../Topbar/Topbar";
 
 const PageContainer = styled.div`
-  padding-top: 55px;
   display: grid;
   grid-template-columns: 1;
   grid-gap: 80px;
+  padding: 55px 5% 0 5%;
 
   > * {
+    margin: 0 auto;
     max-width: 1400px;
-    justify-self: center;
-    margin: 0 5%;
+    width: 100%;
   }
 `;
 

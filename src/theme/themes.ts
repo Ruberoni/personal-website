@@ -12,7 +12,7 @@ export const commonThemeStyles: DefaultTheme = {
     3: "",
   },
   fontSizes: {
-    sm: "",
+    sm: "0.8em",
     md: "",
     lg: "",
     body: "1em",

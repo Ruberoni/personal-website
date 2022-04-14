@@ -8,6 +8,7 @@ import "@fontsource/rouge-script";
 import Layout from "../components/Layout/Layout";
 import Hero from "../components/Hero/Hero";
 import About from "../components/About/About";
+import Projects from "../components/Projects/Projects";
 
 const IndexPage = () => {
   const { t } = useTranslation();
@@ -16,6 +17,7 @@ const IndexPage = () => {
       <title>{t("Home Page")}</title>
       <Hero style={{ height: "75vh", marginTop: "70px" }} id="Home" />
       <About />
+      <Projects />
     </Layout>
   );
 };

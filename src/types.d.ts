@@ -18,7 +18,7 @@ declare module "styled-components" {
       3: string;
     };
     fontSizes: {
-      sm: string;
+      sm: "0.8em";
       md: string;
       lg: string;
       body: string;
