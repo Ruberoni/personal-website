@@ -15,11 +15,11 @@ const ProjectsListSeparatorContainer = styled.div`
 `;
 
 interface StyledTriangleProps {
-  rotationTurn?: number;
+  rotationturn?: number;
 }
 
 const StyledTriangle = styled(Triangle)<StyledTriangleProps>`
-  transform: rotate(${({ rotationTurn }) => `${rotationTurn || 0.25}turn`});
+  transform: rotate(${({ rotationturn }) => `${rotationturn || 0.25}turn`});
 `;
 
 const ProjectsListSeparator = () => {
@@ -27,9 +27,9 @@ const ProjectsListSeparator = () => {
 
   return (
     <ProjectsListSeparatorContainer>
-      <StyledTriangle fill={theme.colors[3]} rotationTurn={-0.25} />
-      <StyledTriangle fill={theme.colors[3]} rotationTurn={-0.25} />
-      <StyledTriangle fill={theme.colors[3]} rotationTurn={-0.25} />
+      <StyledTriangle fill={theme.colors[3]} rotationturn={-0.25} />
+      <StyledTriangle fill={theme.colors[3]} rotationturn={-0.25} />
+      <StyledTriangle fill={theme.colors[3]} rotationturn={-0.25} />
       <StyledTriangle fill={theme.colors[8]} />
       <StyledTriangle fill={theme.colors[8]} />
       <StyledTriangle fill={theme.colors[8]} />
@@ -81,8 +81,9 @@ const Projects = () => {
     <div style={{}}>
       <Heading>Projects</Heading>
       <ProjectsList Separator={<ProjectsListSeparator />}>
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <ProjectsListItem
+            key={`ProjectListItem-${project.title}-${index}`}
             title={project.title}
             description={project.description}
             imageSrc={project.imageSrc}

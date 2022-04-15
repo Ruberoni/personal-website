@@ -18,6 +18,9 @@ export const commonThemeStyles: DefaultTheme = {
     body: "1em",
     heading: "2.6em",
   },
+  mediaQueries: {
+    mobile: "650px",
+  },
 };
 
 export const lightTheme: DefaultTheme = {

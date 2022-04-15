@@ -24,5 +24,8 @@ declare module "styled-components" {
       body: string;
       heading: string;
     };
+    mediaQueries: {
+      mobile: "650px";
+    };
   }
 }

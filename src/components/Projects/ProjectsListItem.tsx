@@ -1,10 +1,15 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
+import useMediaQuery from "../../hooks/useMediaQuery";
 import Image from "../About/Image";
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
+
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+    flex-direction: column;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -25,6 +30,11 @@ const ProjectDescription = styled.p`
 
 const ProjectImage = styled(Image)`
   height: 230px;
+  width: fit-content;
+
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+    align-self: center;
+  }
 `;
 
 const Spacer = styled.div`
@@ -35,8 +45,14 @@ const Spacer = styled.div`
 const ProjectLinksList = styled.div`
   display: grid;
   height: fit-content;
+  width: fit-content;
   grid-gap: 8px;
   padding: 8px;
+
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+    grid-auto-flow: column;
+    align-self: center;
+  }
 `;
 
 const ProjectButton = styled.button`
@@ -53,6 +69,10 @@ const ProjectButton = styled.button`
 
   color: ${({ theme }) => theme.colors.body};
   font-size: 0.9em;
+
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+    align-self: center;
+  }
 `;
 
 interface ProjectLinkProps {
@@ -82,24 +102,33 @@ const ProjectsListItem = ({
   imageSrc,
   links,
 }: ProjectsListItemProps) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(`(max-width: ${theme.mediaQueries.mobile})`);
+
+  if (isMobile) {
+    console.log("Mobile");
+  }
+
   return (
     <Container>
       <InfoContainer>
         <ProjectTitle>{title}</ProjectTitle>
         <ProjectDescription>{description}</ProjectDescription>
-        <ProjectButton>See more</ProjectButton>
+        {!isMobile && <ProjectButton>See more</ProjectButton>}
       </InfoContainer>
       <Spacer />
       <ProjectImage src={imageSrc} />
       <ProjectLinksList>
-        {links?.map((link) => (
+        {links?.map((link, index) => (
           <ProjectLink
+            key={`ProjectLink-${link.name}-${index}`}
             name={link.name}
             href={link.href}
             imageSrc={link.imageSrc}
           />
         ))}
       </ProjectLinksList>
+      {isMobile && <ProjectButton>See more</ProjectButton>}
     </Container>
   );
 };
