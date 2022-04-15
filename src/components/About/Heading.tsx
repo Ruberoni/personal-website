@@ -14,7 +14,6 @@ const Line = styled.div<LineProps>`
   height: 1px;
   opacity: 0.5;
   background-color: ${({ theme }) => theme.colors.body};
-  position: absolute;
   z-index: -1;
 `;
 
@@ -26,8 +25,8 @@ interface ArrowProps {
 const ArrowContainer = styled.div<ArrowProps>`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: ${({ width }) => (width ? `${width}px` : "100%")};
+  max-width: ${({ width }) => (width ? `${width}px` : "100%")};
+  width: 100%;
 `;
 
 const Arrow = (props: ArrowProps) => {
