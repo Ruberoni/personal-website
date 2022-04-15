@@ -1,9 +1,43 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import Heading from "../About/Heading";
-import ProjectListItem, { ProjectsListItemProps } from "./ProjectsListItem";
+import Stack from "../common/Stack";
+import Triangle from "../icons/Triangle";
+import ProjectsListItem, { ProjectsListItemProps } from "./ProjectsListItem";
 
-const ProjectsList = styled.div`
+const ProjectsListSeparatorContainer = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  justify-self: center;
+  grid-gap: 0.3em;
+  filter: drop-shadow(4px 0px 0px #000000);
+`;
+
+interface StyledTriangleProps {
+  rotationTurn?: number;
+}
+
+const StyledTriangle = styled(Triangle)<StyledTriangleProps>`
+  transform: rotate(${({ rotationTurn }) => `${rotationTurn || 0.25}turn`});
+`;
+
+const ProjectsListSeparator = () => {
+  const theme = useTheme();
+
+  return (
+    <ProjectsListSeparatorContainer>
+      <StyledTriangle fill={theme.colors[3]} rotationTurn={-0.25} />
+      <StyledTriangle fill={theme.colors[3]} rotationTurn={-0.25} />
+      <StyledTriangle fill={theme.colors[3]} rotationTurn={-0.25} />
+      <StyledTriangle fill={theme.colors[8]} />
+      <StyledTriangle fill={theme.colors[8]} />
+      <StyledTriangle fill={theme.colors[8]} />
+    </ProjectsListSeparatorContainer>
+  );
+};
+
+const ProjectsList = styled(Stack)`
   display: grid;
   grid-gap: 2em;
   margin-top: 2em;
@@ -34,16 +68,21 @@ const projects: ProjectsListItemProps[] = [
     imageSrc: "http://placekitten.com/250/300",
     links: [links[0]],
   },
+  {
+    title: "Notes Project",
+    description: "Notes-taking app. A fast and open-source alternative!",
+    imageSrc: "http://placekitten.com/250/300",
+    links: [links[0]],
+  },
 ];
 
-// Stack overflow for to do a grid separator https://stackoverflow.com/questions/54791658/vertical-divider-as-pseudo-element-with-css-grids
 const Projects = () => {
   return (
     <div style={{}}>
       <Heading>Projects</Heading>
-      <ProjectsList>
+      <ProjectsList Separator={<ProjectsListSeparator />}>
         {projects.map((project) => (
-          <ProjectListItem
+          <ProjectsListItem
             title={project.title}
             description={project.description}
             imageSrc={project.imageSrc}
