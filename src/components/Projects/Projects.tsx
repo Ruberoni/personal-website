@@ -4,6 +4,10 @@ import Heading from "../About/Heading";
 import Stack from "../common/Stack";
 import Triangle from "../icons/Triangle";
 import ProjectsListItem, { ProjectsListItemProps } from "./ProjectsListItem";
+// @ts-ignore
+import projectDramaKeeperImage from "../../images/project-drama-keeper.png";
+// @ts-ignore
+import projectNotesProjectImage from "../../images/project-notes-project.png";
 
 const ProjectsListSeparatorContainer = styled.div`
   display: grid;
@@ -43,42 +47,42 @@ const ProjectsList = styled(Stack)`
   margin-top: 2em;
 `;
 
-const links = [
-  {
-    href: "#",
-    imageSrc: "http://placekitten.com/15/15",
-    name: "GitHub",
-  },
-  {
-    href: "#",
-    imageSrc: "http://placekitten.com/15/15",
-    name: "Website",
-  },
-];
 const projects: ProjectsListItemProps[] = [
   {
     title: "Drama Keeper",
     description: "Keep a record of the films watched",
-    imageSrc: "http://placekitten.com/250/300",
-    links,
+    imageSrc: projectDramaKeeperImage,
+    links: [
+      {
+        href: "https://github.com/Ruberoni/drama-keeper",
+        name: "GitHub",
+      },
+      {
+        href: "http://drama-keeper-client.vercel.app/",
+        name: "Website",
+      },
+    ],
   },
   {
     title: "Notes Project",
     description: "Notes-taking app. A fast and open-source alternative!",
-    imageSrc: "http://placekitten.com/250/300",
-    links: [links[0]],
-  },
-  {
-    title: "Notes Project",
-    description: "Notes-taking app. A fast and open-source alternative!",
-    imageSrc: "http://placekitten.com/250/300",
-    links: [links[0]],
+    imageSrc: projectNotesProjectImage,
+    links: [
+      {
+        href: "https://github.com/Ruberoni/notes-project",
+        name: "GitHub",
+      },
+      {
+        href: "https://notes-project-1.netlify.app/",
+        name: "Website",
+      },
+    ],
   },
 ];
 
 const Projects = () => {
   return (
-    <div style={{}}>
+    <div id="Projects">
       <Heading>Projects</Heading>
       <ProjectsList Separator={<ProjectsListSeparator />}>
         {projects.map((project, index) => (

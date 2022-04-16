@@ -2,6 +2,8 @@ import React from "react";
 import styled, { useTheme } from "styled-components";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import Image from "../About/Image";
+import GitHubLogoIcon from "../icons/GitHubLogoIcon";
+import ExternalLinkIcon from "../icons/ExternalLinkIcon";
 
 const Container = styled.div`
   display: flex;
@@ -47,11 +49,11 @@ const ProjectLinksList = styled.div`
   height: fit-content;
   width: fit-content;
   grid-gap: 8px;
-  padding: 8px;
+  padding: 0 8px;
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     grid-auto-flow: column;
-    align-self: center;
+    padding: 8px;
   }
 `;
 
@@ -60,7 +62,7 @@ const ProjectButton = styled.button`
   height: 50px;
   margin-top: auto;
 
-  background: #345b63;
+  background: ${({ theme }) => theme.colors["3"]};
   box-shadow: -5px 5px 0px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   border-width: 0;
@@ -76,15 +78,32 @@ const ProjectButton = styled.button`
 `;
 
 interface ProjectLinkProps {
-  name?: string;
-  imageSrc: string;
+  name?: "GitHub" | "Website" | string;
+  imageSrc?: string;
   href: string;
 }
 
+const getProjectLinkImage = (linkName: ProjectLinkProps["name"]) => {
+  const theme = useTheme();
+
+  switch (linkName) {
+    case "GitHub":
+      return <GitHubLogoIcon fill={theme.colors["7"]} />;
+    case "Website":
+      return <ExternalLinkIcon fill={theme.colors["7"]} />;
+    default:
+      return <></>;
+  }
+};
+
 const ProjectLink = ({ name, imageSrc, href }: ProjectLinkProps) => {
   return (
-    <a href={href} title={name}>
-      <img style={{ width: "20px" }} src={imageSrc} />
+    <a href={href} title={name} target="_blank">
+      {imageSrc ? (
+        <img style={{ width: "20px" }} src={imageSrc} />
+      ) : (
+        getProjectLinkImage(name)
+      )}
     </a>
   );
 };
