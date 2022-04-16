@@ -4,5 +4,13 @@
   "Home": "Home",
   "About": "About",
   "Projects": "Projects",
-  "Contact me": "Contact me"
+  "Contact me": "Contact me",
+  "projects": {
+    "drama-keeper": {
+      "description": "Keep a record of the films watched"
+    },
+    "notes-project": {
+      "description": "Notes-taking app. A fast and open-source alternative!"
+    }
+  }
 }

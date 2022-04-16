@@ -24,7 +24,6 @@ const config: GatsbyConfig = {
           interpolation: {
             escapeValue: false,
           },
-          keySeparator: false,
           nsSeparator: false,
         },
       },
@@ -69,7 +68,7 @@ const config: GatsbyConfig = {
         },
       },
     },
-    `gatsby-plugin-styled-components`
+    `gatsby-plugin-styled-components`,
   ],
 };
 

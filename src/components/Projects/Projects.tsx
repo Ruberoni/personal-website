@@ -1,13 +1,11 @@
 import React from "react";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 import styled, { useTheme } from "styled-components";
+import useProjectsList from "../../hooks/useProjectsList";
 import Heading from "../About/Heading";
 import Stack from "../common/Stack";
 import Triangle from "../icons/Triangle";
-import ProjectsListItem, { ProjectsListItemProps } from "./ProjectsListItem";
-// @ts-ignore
-import projectDramaKeeperImage from "../../images/project-drama-keeper.png";
-// @ts-ignore
-import projectNotesProjectImage from "../../images/project-notes-project.png";
+import ProjectsListItem from "./ProjectsListItem";
 
 const ProjectsListSeparatorContainer = styled.div`
   display: grid;
@@ -47,43 +45,13 @@ const ProjectsList = styled(Stack)`
   margin-top: 2em;
 `;
 
-const projects: ProjectsListItemProps[] = [
-  {
-    title: "Drama Keeper",
-    description: "Keep a record of the films watched",
-    imageSrc: projectDramaKeeperImage,
-    links: [
-      {
-        href: "https://github.com/Ruberoni/drama-keeper",
-        name: "GitHub",
-      },
-      {
-        href: "http://drama-keeper-client.vercel.app/",
-        name: "Website",
-      },
-    ],
-  },
-  {
-    title: "Notes Project",
-    description: "Notes-taking app. A fast and open-source alternative!",
-    imageSrc: projectNotesProjectImage,
-    links: [
-      {
-        href: "https://github.com/Ruberoni/notes-project",
-        name: "GitHub",
-      },
-      {
-        href: "https://notes-project-1.netlify.app/",
-        name: "Website",
-      },
-    ],
-  },
-];
-
 const Projects = () => {
+  const projects = useProjectsList();
+  const { t } = useTranslation();
+
   return (
     <div id="Projects">
-      <Heading>Projects</Heading>
+      <Heading>{t("Projects")}</Heading>
       <ProjectsList Separator={<ProjectsListSeparator />}>
         {projects.map((project, index) => (
           <ProjectsListItem
