@@ -18,21 +18,22 @@ const Container = styled.div`
 `;
 
 const TopBarButtons = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, max-content);
-  grid-gap: 20px;
-  grid-gap: 2em;
+  display: flex;
+  justify-content: space-between;
+  width: 500%;
+  max-width: 500px;
 `;
 
 const TopBarItem = styled.a`
   display: flex;
   align-items: center;
-  padding: 0 1em;
+  padding: 0 3.5%;
 
   font-size: ${({ theme }) => theme.fontSizes.body};
   color: ${({ theme }) => theme.colors.heading};
   font-weight: 500;
   text-decoration: none;
+  text-align: center;
 `;
 
 const Topbar = () => {
