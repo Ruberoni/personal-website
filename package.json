@@ -3,7 +3,20 @@
   "version": "0.1.0",
   "private": false,
   "description": "Ruben's personal website",
-  "author": "Ruben Paredes",
+  "author": {
+    "name": "Ruben Paredes",
+    "email": "ruben.pardes25@gmail.com"
+  },
+  "homepage": "https://rubenparedes.gatsbyjs.io/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ruberoni/personal-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ruberoni/personal-website/issues",
+    "email": "ruben.pardes25@gmail.com"
+  },
+  "license": "MIT",
   "keywords": [
     "gatsby",
     "personal",
@@ -31,7 +44,6 @@
       "pre-commit": "npx pretty-quick --staged && npm run test && npm run typecheck"
     }
   },
-  "license": "0BSD",
   "dependencies": {
     "@fontsource/roboto": "^4.5.5",
     "@fontsource/rouge-script": "^4.5.6",
