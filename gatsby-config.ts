@@ -1,9 +1,10 @@
 import type { GatsbyConfig } from "gatsby";
-import path from "path";
+
+const siteUrl = "https://rubenparedes.gatsbyjs.io/";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl,
   },
   plugins: [
     {
@@ -19,12 +20,13 @@ const config: GatsbyConfig = {
         localeJsonSourceName: `locale`,
         languages: [`en`, `es`],
         defaultLanguage: `en`,
-        siteUrl: `http://localhost:8000/`,
+        siteUrl,
         i18nextOptions: {
           interpolation: {
             escapeValue: false,
           },
           nsSeparator: false,
+          redirect: false,
         },
       },
     },
