@@ -4,7 +4,7 @@ import { Body } from "../common/text";
 import Triangle from "../icons/Triangle";
 
 const Container = styled.div`
-  width: 150px;
+  min-width: 150px;
   height: 52px;
   border-radius: 5px;
   background: #283645;
@@ -31,7 +31,7 @@ const SkillsListItem = ({ label, imageSrc }: SkillsListItem) => {
   return (
     <Container>
       {imageSrc && <SkillImage src={imageSrc} />}
-      <Body>{label || "Label"}</Body>
+      <Body style={{ marginRight: 15 }}>{label || "Label"}</Body>
       <StyledTriangle />
     </Container>
   );

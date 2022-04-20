@@ -8,6 +8,17 @@ import SkillsListItem from "./SkillsListItem";
 
 // @ts-ignore
 import reactLogoImg from "../../images/1200px-react.png";
+// @ts-ignore
+import typescriptLogoImg from "../../images/typescript-logo.png";
+// @ts-ignore
+import gatsbyLogoImg from "../../images/gatsby-logo.png";
+// @ts-ignore
+import nextjsLogoImg from "../../images/next-js-logo.png";
+// @ts-ignore
+import figmaLogoImg from "../../images/figma-logo.png";
+// @ts-ignore
+import gitLogoImg from "../../images/git-logo.png";
+import { Trans } from "react-i18next";
 
 const StyledImage = styled(Image)`
   position: absolute;
@@ -16,17 +27,17 @@ const StyledImage = styled(Image)`
 `;
 
 const StyledBody = styled(Body)`
-  max-width: calc(100% - 500px - 30px);
+  max-width: calc(100% - 500px - 180px);
   text-align: justify;
 `;
 
 const SkillsContainer = styled.div`
-  width: 90%;
+  width: 100%;
   min-height: 200px;
 
   padding: 1em 0;
   background-color: ${({ theme }) => theme.colors["3"]};
-  margin: 90px auto 0 auto;
+  margin: 150px auto 0 auto;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
@@ -67,7 +78,7 @@ const SkillsTextContainer = styled.div`
 
 const SkillsList = styled.div`
   display: flex;
-  width: 80%;
+  width: 82%;
   flex-wrap: wrap;
   justify-content: center;
 
@@ -82,20 +93,24 @@ const skills = [
     name: "React",
   },
   {
-    image: reactLogoImg,
-    name: "React",
+    image: typescriptLogoImg,
+    name: "TypeScript",
   },
   {
-    image: reactLogoImg,
-    name: "React",
+    image: figmaLogoImg,
+    name: "Figma",
   },
   {
-    image: reactLogoImg,
-    name: "React",
+    image: gitLogoImg,
+    name: "Git",
   },
   {
-    image: reactLogoImg,
-    name: "React",
+    image: nextjsLogoImg,
+    name: "Next.js",
+  },
+  {
+    image: gatsbyLogoImg,
+    name: "Gatsby",
   },
 ];
 
@@ -109,18 +124,7 @@ const About = ({ style }: AboutProps) => {
       <Heading>About</Heading>
       <StyledImage src="http://placekitten.com/500/250" />
       <StyledBody>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-        efficitur risus vel ligula consequat, in congue lectus auctor. Sed
-        facilisis est odio. Praesent luctus, enim ac ultricies placerat, est
-        erat dignissim libero, vitae rhoncus metus justo eget urna. Sed feugiat
-        dolor nec nulla gravida faucibus eget nec nunc. Ut egestas augue eget
-        neque vestibulum tempus. Nullam eu semper orci. Vivamus eget ullamcorper
-        diam, ut euismod tortor. Vivamus vel maximus metus, sed fringilla lacus.
-        Curabitur eu leo nisl. Cras sollicitudin hendrerit lacus, nec efficitur
-        arcu tempus quis. In sit amet condimentum lorem. Mauris sollicitudin
-        faucibus fringilla. Nam elementum lacus at lacus interdum sodales. Duis
-        eu commodo erat. Nam eget tincidunt risus. Proin dapibus in leo sed
-        consequat.
+        <Trans>About me description</Trans>
       </StyledBody>
       <SkillsContainer>
         <SkillsLeftCircle size={50} />
