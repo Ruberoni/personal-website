@@ -1,23 +1,17 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import { useTranslation } from "gatsby-plugin-react-i18next";
 import "@fontsource/roboto";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/rouge-script";
 import Layout from "../components/Layout/Layout";
 import Hero from "../components/Hero/Hero";
-import About from "../components/About/About";
-import Projects from "../components/Projects/Projects";
 
 const IndexPage = () => {
-  const { t } = useTranslation();
   return (
     <Layout>
-      <title>{t("Home Page")}</title>
-      <Hero style={{ height: "75vh", marginTop: "70px" }} id="Home" />
-      <About />
-      <Projects />
+      <title>Ruben Paredes</title>
+      <Hero />
     </Layout>
   );
 };

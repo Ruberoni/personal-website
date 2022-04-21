@@ -7,12 +7,13 @@ const PageContainer = styled.div`
   display: grid;
   grid-template-columns: 1;
   grid-gap: 80px;
-  padding: 55px 5% 0 5%;
 
   > * {
-    margin: 0 auto;
-    max-width: 1400px;
-    width: 100%;
+    padding: 0 23%;
+
+    @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+      padding: 0 1%;
+    }
   }
 `;
 

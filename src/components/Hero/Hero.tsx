@@ -1,67 +1,48 @@
-import React, { HTMLProps } from "react";
-import styled from "styled-components";
-import HeroLogoAnimation from "./HeroLogoAnimation";
-import SmileFaceSVG from "../icons/SmileFace";
-import CirclesLayout from "./CirclesLayout";
+import React from "react";
+import styled, { CSSProperties } from "styled-components";
+import { Body } from "../common/text";
 
 const Container = styled.div`
+  background-color: black;
+  height: 93vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100%;
 `;
 
-const HeroLogoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: -50px;
-`;
-
-const HeroText = styled.p`
-  color: ${({ theme }) => theme.colors.heading};
-  font-size: 6em;
-  font-weight: 500;
-  cursor: default;
-  margin: 0;
-  line-height: 65px;
-  text-align: center;
-`;
-
-const OccupationText = styled.p`
-  font-family: "Rouge Script";
+const Name = styled.h1`
   color: ${({ theme }) => theme.colors.body};
-  font-size: 2em;
-  margin: 4px 0;
+  font-weight: normal;
+  font-size: 6em;
+
+  margin: 0;
+`;
+const Role = styled.h2`
+  color: ${({ theme }) => theme.colors.body};
+  font-weight: normal;
+  font-style: italic;
+  font-size: 4em;
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+    font-size: 3em;
+  }
+
+  margin: 3% 0 28% 0;
 `;
 
-const OccupationContainer = styled.div`
-  display: flex;
-  align-items: center;
-  align-self: center;
-`;
-
-const Hero = (props: HTMLProps<HTMLDivElement>) => {
+const Center = styled.div``;
+// https://stackoverflow.com/questions/3796025/fill-svg-path-element-with-a-background-image
+const Hero = (props: { style?: CSSProperties }) => {
   return (
-    <CirclesLayout {...props}>
-      <Container>
-        <HeroLogoContainer>
-          <HeroText>Rubén</HeroText>
-          <HeroLogoAnimation />
-          <OccupationContainer>
-            <OccupationText>web developer</OccupationText>
-            <SmileFace />
-          </OccupationContainer>
-        </HeroLogoContainer>
-      </Container>
-    </CirclesLayout>
+    <Container {...props}>
+      <Center>
+        <Name>Ruben Paredes</Name>
+        <Role>web developer</Role>
+        <Body>
+          Inspirited by this wind of promise, my daydreams become more fervent
+          and vivid.
+        </Body>
+      </Center>
+    </Container>
   );
 };
 
 export default Hero;
-
-const SmileFace = styled(SmileFaceSVG).attrs(({ theme }) => ({
-  stroke: theme.colors.body,
-}))`
-  margin-left: 5px;
-  margin-top: 25px;
-`;

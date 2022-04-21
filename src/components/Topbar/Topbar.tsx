@@ -1,59 +1,42 @@
-import { Trans } from "gatsby-plugin-react-i18next";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 import React from "react";
 import styled from "styled-components";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  position: fixed;
-
-  background-color: black;
-  opacity: 0.9;
-  width: 100%;
-  height: 55px;
-
-  z-index: 999;
-
-  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
-`;
-
 const TopBarButtons = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 500%;
-  max-width: 500px;
+  background-color: black;
+  display: grid;
+  width: max-content;
+  height: 2em;
+  grid-auto-flow: column;
+
+  position: fixed;
+  right: 23%;
+  top: 1em;
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+    right: 1%;
+  }
 `;
 
 const TopBarItem = styled.a`
   display: flex;
   align-items: center;
-  padding: 0 3.5%;
+  padding: 0 0.7em;
 
   font-size: ${({ theme }) => theme.fontSizes.body};
-  color: ${({ theme }) => theme.colors.heading};
-  font-weight: 500;
+  color: ${({ theme }) => theme.colors.body};
+
   text-decoration: none;
-  text-align: center;
 `;
 
 const Topbar = () => {
+  const { t } = useTranslation();
+
   return (
-    <Container>
-      <TopBarButtons>
-        <TopBarItem href="#Home">
-          <Trans>Home</Trans>
-        </TopBarItem>
-        <TopBarItem href="#About">
-          <Trans>About</Trans>
-        </TopBarItem>
-        <TopBarItem href="#Projects">
-          <Trans>Projects</Trans>
-        </TopBarItem>
-        <TopBarItem href="#Contact">
-          <Trans>Contact me</Trans>
-        </TopBarItem>
-      </TopBarButtons>
-    </Container>
+    <TopBarButtons>
+      <TopBarItem href="#Home">{t("Home")}</TopBarItem>
+      <TopBarItem href="#Projects">{t("Projects")}</TopBarItem>
+      <TopBarItem href="#Contact">{t("Contact me")}</TopBarItem>
+    </TopBarButtons>
   );
 };
 
