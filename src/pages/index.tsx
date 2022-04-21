@@ -6,12 +6,14 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/rouge-script";
 import Layout from "../components/Layout/Layout";
 import Hero from "../components/Hero/Hero";
+import Projects from "../components/Projects/Projects";
 
 const IndexPage = () => {
   return (
     <Layout>
       <title>Ruben Paredes</title>
       <Hero />
+      <Projects />
     </Layout>
   );
 };

@@ -6,7 +6,6 @@ import Topbar from "../Topbar/Topbar";
 const PageContainer = styled.div`
   display: grid;
   grid-template-columns: 1;
-  grid-gap: 80px;
 
   > * {
     padding: 0 23%;

@@ -23,6 +23,7 @@ const useProjectsList = (): ProjectsListItemProps[] => {
           name: "Website",
         },
       ],
+      tags: ["React.js", "TypeScript", "Express", "MongoDB"],
     },
     {
       title: "Notes Project",
@@ -38,6 +39,7 @@ const useProjectsList = (): ProjectsListItemProps[] => {
           name: "Website",
         },
       ],
+      tags: ["React.js", "TypeScript", "GraphQL", "MySQL", "Apollo"],
     },
   ];
 };

@@ -2,10 +2,10 @@ import React from "react";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import styled, { useTheme } from "styled-components";
 import useProjectsList from "../../hooks/useProjectsList";
-import Heading from "../About/Heading";
 import Stack from "../common/Stack";
 import Triangle from "../icons/Triangle";
 import ProjectsListItem from "./ProjectsListItem";
+import SectionLayout from "../Layout/SectionLayout";
 
 const ProjectsListSeparatorContainer = styled.div`
   display: grid;
@@ -50,8 +50,7 @@ const Projects = () => {
   const { t } = useTranslation();
 
   return (
-    <div id="Projects">
-      <Heading>{t("Projects")}</Heading>
+    <SectionLayout title={t("Projects")}>
       <ProjectsList Separator={<ProjectsListSeparator />}>
         {projects.map((project, index) => (
           <ProjectsListItem
@@ -60,10 +59,11 @@ const Projects = () => {
             description={project.description}
             imageSrc={project.imageSrc}
             links={project.links}
+            tags={project.tags}
           />
         ))}
       </ProjectsList>
-    </div>
+    </SectionLayout>
   );
 };
 

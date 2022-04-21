@@ -16,7 +16,7 @@ export const commonThemeStyles: DefaultTheme = {
     md: "",
     lg: "",
     body: "1em",
-    heading: "2.6em",
+    heading: "1.5em",
   },
   mediaQueries: {
     mobile: "650px",
