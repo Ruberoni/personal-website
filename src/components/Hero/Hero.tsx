@@ -13,6 +13,9 @@ const Name = styled.h1`
   color: ${({ theme }) => theme.colors.body};
   font-weight: normal;
   font-size: 6em;
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+    font-size: 5em;
+  }
 
   margin: 0;
 `;
@@ -22,7 +25,7 @@ const Role = styled.h2`
   font-style: italic;
   font-size: 4em;
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
-    font-size: 3em;
+    font-size: 2em;
   }
 
   margin: 3% 0 28% 0;

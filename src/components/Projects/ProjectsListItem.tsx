@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
 import useMediaQuery from "../../hooks/useMediaQuery";
-import Image from "../About/Image";
 import GitHubLogoIcon from "../icons/GitHubLogoIcon";
 import ExternalLinkIcon from "../icons/ExternalLinkIcon";
 
@@ -9,6 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  
 
   @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
     flex-direction: column;
@@ -19,6 +19,9 @@ const ProjectTitle = styled.h2`
   font-size: 5em;
   margin: 0;
   color: black;
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+    font-size: 4em;
+  }
 `;
 
 const ProjectDescription = styled.p`
@@ -27,7 +30,10 @@ const ProjectDescription = styled.p`
 `;
 
 const ProjectImage = styled.img`
-  width: 654px;
+  max-width: 654px;
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+    width: inherit;
+  }
   align-self: center;
 `;
 
@@ -52,20 +58,19 @@ const getProjectLinkImage = (linkName: ProjectLinkProps["name"]) => {
 };
 
 const TagsList = styled.ul`
-  background-color: black;
   
-  padding: 10px;
+  padding: 0;
   margin: 0;
-  width: max-content;
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: 10px;
+  width: fit-content;
+  display: flex;
+  flex-wrap: wrap;
 `
 
 const Tag = styled.li`
   font-size: ${({theme}) => theme.fontSizes.body};
   color: white;
-
+  background-color: black;
+  padding: 10px;
   list-style-type: none;
 `
 export interface ProjectsListItemProps {

@@ -24,24 +24,17 @@ const StyledTriangle = styled(Triangle)<StyledTriangleProps>`
   transform: rotate(${({ rotationturn }) => `${rotationturn || 0.25}turn`});
 `;
 
-const ProjectsListSeparator = () => {
-  const theme = useTheme();
-
-  return (
-    <ProjectsListSeparatorContainer>
-      <StyledTriangle fill={theme.colors[3]} rotationturn={-0.25} />
-      <StyledTriangle fill={theme.colors[3]} rotationturn={-0.25} />
-      <StyledTriangle fill={theme.colors[3]} rotationturn={-0.25} />
-      <StyledTriangle fill={theme.colors[8]} />
-      <StyledTriangle fill={theme.colors[8]} />
-      <StyledTriangle fill={theme.colors[8]} />
-    </ProjectsListSeparatorContainer>
-  );
-};
+const ProjectsListSeparator = styled.div`
+  width: 300px;
+  height: 1px;
+  opacity: 0.5;
+  background-color: ${({ theme }) => theme.colors.body};
+`
 
 const ProjectsList = styled(Stack)`
-  display: grid;
-  grid-gap: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
   margin-top: 2em;
 `;
 
