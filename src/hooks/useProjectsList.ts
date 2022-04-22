@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { ProjectsListItemProps } from "../components/Projects/ProjectsListItem";
 // @ts-ignore
-import projectDramaKeeperImage from "../images/project-drama-keeper.png";
+import projectDramaKeeperImage from "../images/drama-keeper-showcase.png";
 // @ts-ignore
-import projectNotesProjectImage from "../images/project-notes-project.png";
+import projectNotesProjectImage from "../images/notes-project-showcase.png";
 
 const useProjectsList = (): ProjectsListItemProps[] => {
   const { t } = useTranslation("", { keyPrefix: "projects" });
