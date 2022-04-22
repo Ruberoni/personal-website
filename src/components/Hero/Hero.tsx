@@ -5,6 +5,7 @@ import { Body } from "../common/text";
 const Container = styled.div`
   background-color: black;
   height: 93vh;
+  max-height: 1000px;
   display: flex;
   align-items: center;
 `;

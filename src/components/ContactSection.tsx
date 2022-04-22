@@ -8,11 +8,26 @@ import SectionLayout from "./Layout/SectionLayout";
 const ContactList = styled.div`
   display: flex;
   flex-direction: column;
-`
+  gap: 10px;
 
-const ContactListItem = styled.div`
-  
-`
+  color: white;
+`;
+
+const ContactListItem = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  text-decoration: none;
+  color: white;
+  font-size: ${({ theme }) => theme.fontSizes.body};
+
+  width: fit-content;
+
+  > svg {
+    width: 24px;
+  }
+`;
 
 const ContactSection = () => {
   const { t } = useTranslation();
@@ -24,9 +39,20 @@ const ContactSection = () => {
       style={{ backgroundColor: "black" }}
     >
       <ContactList>
-        <GitHubLogoIcon fill="white"/>
-        Ruberoni
-        <EmailIcon />
+        <ContactListItem
+          href="mailto:ruben.pardes25@gmail.com"
+          target="_blank"
+          title="Email"
+        >
+          <EmailIcon /> ruben.pardes25@gmail.com
+        </ContactListItem>
+        <ContactListItem
+          href="https://github.com/Ruberoni"
+          target="_blank"
+          title="GitHub"
+        >
+          <GitHubLogoIcon /> Ruberoni
+        </ContactListItem>
       </ContactList>
     </SectionLayout>
   );
