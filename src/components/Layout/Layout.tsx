@@ -21,7 +21,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
     <Theme>
       <Topbar />
       <GlobalStyles />
-      <PageContainer>{children}</PageContainer>
+      <PageContainer id='Home'>{children}</PageContainer>
     </Theme>
   );
 };

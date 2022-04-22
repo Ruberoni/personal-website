@@ -10,14 +10,15 @@ const Header = styled.h3`
 
 export interface SectionLayoutProps {
   headerStyle?: CSSProperties;
+  style?: CSSProperties;
   headerTextColor?: string;
   title?: string;
   children?: ReactNode;
 }
 
-const SectionLayout = ({ headerStyle, headerTextColor, title = "Section title", children }: SectionLayoutProps) => {
+const SectionLayout = ({ headerStyle, headerTextColor, title = "Section title", style, children}: SectionLayoutProps) => {
   return (
-    <section id={title}><Header style={{...headerStyle, color: headerTextColor}}>{title.toUpperCase()}</Header>{children}</section>
+    <section id={title.replaceAll(' ', '-')} style={style} ><Header style={{...headerStyle, color: headerTextColor}}>{title.toUpperCase()}</Header>{children}</section>
   )
 }
 

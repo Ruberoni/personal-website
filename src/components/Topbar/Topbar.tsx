@@ -28,14 +28,20 @@ const TopBarItem = styled.a`
   text-decoration: none;
 `;
 
+const getTopBarHref = (name: string) => {
+  const { t } = useTranslation();
+
+  return '#' + t(name).replaceAll(' ', '-')
+}
+
 const Topbar = () => {
   const { t } = useTranslation();
 
   return (
     <TopBarButtons>
-      <TopBarItem href="#Home">{t("Home")}</TopBarItem>
-      <TopBarItem href="#Projects">{t("Projects")}</TopBarItem>
-      <TopBarItem href="#Contact">{t("Contact me")}</TopBarItem>
+      <TopBarItem href='#Home'>{t("Home")}</TopBarItem>
+      <TopBarItem href={getTopBarHref('Projects')}>{t("Projects")}</TopBarItem>
+      <TopBarItem href={getTopBarHref('Contact me')}>{t("Contact me")}</TopBarItem>
     </TopBarButtons>
   );
 };

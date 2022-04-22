@@ -7,6 +7,7 @@ import "@fontsource/rouge-script";
 import Layout from "../components/Layout/Layout";
 import Hero from "../components/Hero/Hero";
 import Projects from "../components/Projects/Projects";
+import Contact from "../components/ContactSection";
 
 const IndexPage = () => {
   return (
@@ -14,6 +15,7 @@ const IndexPage = () => {
       <title>Ruben Paredes</title>
       <Hero />
       <Projects />
+      <Contact />
     </Layout>
   );
 };
