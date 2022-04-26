@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { Theme, GlobalStyles } from "../../theme";
+import Footer from "../Footer";
 import Topbar from "../Topbar/Topbar";
 
 const PageContainer = styled.div`
@@ -21,7 +22,10 @@ const Layout = ({ children }: { children: ReactNode }) => {
     <Theme>
       <Topbar />
       <GlobalStyles />
-      <PageContainer id='Home'>{children}</PageContainer>
+      <PageContainer id="Home">
+        {children}
+        <Footer />
+      </PageContainer>
     </Theme>
   );
 };
